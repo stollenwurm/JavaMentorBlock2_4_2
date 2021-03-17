@@ -79,8 +79,10 @@ function addCard(item) {
   const input = document.querySelector('.input-text')
   input.value = ''
 
-  const btn = container.querySelector('.btn-close')
-  btn.addEventListener('click', removeCard)
+  const btn = container.querySelectorAll('.btn-close')
+  for(let i of btn) {
+    i.addEventListener('click', removeCard)
+  }
 }
 
 async function searchRepo(repoName) {

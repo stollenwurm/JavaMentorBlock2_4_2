@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 62px 84px 72px 74px;
+  width: 503px;
+
+  font-family: 'Roboto', sans-serif;
+
+  background-color: gray;
+}
+
+.search {
+  margin-bottom: 45px;
+}
+
+.input-text {
+  padding-left: 13px;
+
+  width: 487px;
+  height: 61px;
+
+  font-size: 48px;
+
+  border: none;
+}
+
+.search-item {
+  padding-left: 13px;
+
+  width: 500px;
+  height: 44px;
+
+  text-align: left;
+  border: 2px solid black;
+  font-size: 30px;
+  background: lightgray;
+
+  cursor: pointer;
+}
+
+.search-item:active,
+.search-item:focus,
+.search-item:hover {
+  background: #65cdf9;
+}
+
+.card {
+  width: 503px;
+  height: 101px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid black;
+
+  background-color: rgb(221, 131, 194);
+}
+
+.content {
+  margin-left: 16px;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.btn-close {
+  padding: 0;
+  margin-right: 34px;
+
+  width: 42px;
+  height: 40px;
+
+  background: none;
+  border: none;
+
+  background-image: url('../img/Vector\ 7.svg'), url('../img/Vector\ 8.svg');
+  background-position: center;
+
+  cursor: pointer;
+}

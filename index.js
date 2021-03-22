@@ -92,9 +92,8 @@ async function searchRepo(repoName) {
     return await fetch(url).then(response => {
       if (response.ok) {
         response.json().then(repos => addSearchItems(repos.items))
-      }
-      else {
-        // searchRepo(repoName)
+      } else if (response.status === 403) {
+        alert('403 Error')
       }
     })
   } else {
@@ -108,8 +107,8 @@ async function searchRepoItemById(repoName, repoId) {
     return await fetch(url).then(response => {
       if (response.ok) {
         response.json().then(repos => repos.items.filter(item => item.id === repoId)).then(addCard)
-      } else {
-        // searchRepo(repoName)
+      } else if (response.status === 403) {
+        alert('403 Error')
       }
     })
   } else {
@@ -130,7 +129,7 @@ function search(evt) {
   searchRepo(value)
 }
 
-search = debounce(search, 200)
+search = debounce(search, 500)
 
 const input = document.querySelector('.input-text')
 input.addEventListener('keyup', search)

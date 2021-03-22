@@ -93,7 +93,7 @@ async function searchRepo(repoName) {
       if (response.ok) {
         response.json().then(repos => addSearchItems(repos.items))
       } else if (response.status === 403) {
-        alert('403 Error')
+        alert('API rate limit exceeded')
       }
     })
   } else {
@@ -108,7 +108,7 @@ async function searchRepoItemById(repoName, repoId) {
       if (response.ok) {
         response.json().then(repos => repos.items.filter(item => item.id === repoId)).then(addCard)
       } else if (response.status === 403) {
-        alert('403 Error')
+        alert('API rate limit exceeded')
       }
     })
   } else {

@@ -91,7 +91,7 @@ async function searchRepo(repoName) {
     
     return await fetch(url).then(response => {
       if (response.ok) {
-        response.json().then(repos => (repos => {
+        response.json().then(repos => {
           if (repos.items.length) {
             addSearchItems(repos.items)
           } else {
@@ -99,7 +99,7 @@ async function searchRepo(repoName) {
           }
         })
       } else if (response.status === 403) {
-        alert('API rate limit exceeded')
+        alert('403 Error')
       }
     })
   } else {
@@ -114,7 +114,7 @@ async function searchRepoItemById(repoName, repoId) {
       if (response.ok) {
         response.json().then(repos => repos.items.filter(item => item.id === repoId)).then(addCard)
       } else if (response.status === 403) {
-        alert('API rate limit exceeded')
+        alert('403 Error')
       }
     })
   } else {
@@ -135,7 +135,7 @@ function search(evt) {
   searchRepo(value)
 }
 
-search = debounce(search, 500)
+search = debounce(search, 700)
 
 const input = document.querySelector('.input-text')
 input.addEventListener('keyup', search)

@@ -91,7 +91,13 @@ async function searchRepo(repoName) {
     
     return await fetch(url).then(response => {
       if (response.ok) {
-        response.json().then(repos => addSearchItems(repos.items))
+        response.json().then(repos => (repos => {
+          if (repos.items.lrngth) {
+            addSearchItems(repos.items)
+          } else {
+            alert('По данному запросу ничего не найдено!')
+          }
+        })
       } else if (response.status === 403) {
         alert('API rate limit exceeded')
       }

@@ -92,7 +92,7 @@ async function searchRepo(repoName) {
     return await fetch(url).then(response => {
       if (response.ok) {
         response.json().then(repos => (repos => {
-          if (repos.items.lrngth) {
+          if (repos.items.length) {
             addSearchItems(repos.items)
           } else {
             alert('По данному запросу ничего не найдено!')
